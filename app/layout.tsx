@@ -6,6 +6,9 @@ import TrailerWrapper from "@/app/_ui/trailer-wrapper";
 export const metadata: Metadata = {
   title: "QR Code Generator",
   description: "Generated QR Codes Easily",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
