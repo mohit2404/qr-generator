@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import QRCode from "qrcode";
+import Image from "next/image";
 
 export default function WebsitePage() {
   // local state to store the website Url
@@ -22,7 +23,7 @@ export default function WebsitePage() {
         errorCorrectionLevel: errorCorrectionLevel,
         version: 7,
         color: {
-          dark: "#c084fc", // Color of the QR code
+          dark: "#000", // Color of the QR code
           light: "#fff", // Background color
         },
       });
@@ -35,27 +36,44 @@ export default function WebsitePage() {
   }
 
   return (
-    <section className="h-auto p-4 xl:px-0">
-      <h1>Website page</h1>
-      <form onSubmit={handleFormSubmit}>
-        <input
-          type="url"
-          name="website"
-          value={websiteUrl}
-          onChange={(e) => setWebsiteUrl(e.target.value)}
-          className="h-10 w-full max-w-xs rounded-md border-2 p-4 text-black"
-        />
-        <button>Submit</button>
-      </form>
-
-      <div className="">
+    <section className="h-screen p-4 py-20 xl:px-0">
+      <h1 className="bg-gradient-to-r from-orange-500 to-purple-500 bg-clip-text text-center text-2xl font-bold tracking-wide text-transparent md:text-4xl">
+        Generate QR for Website
+      </h1>
+      <div className="mx-auto mt-14 w-full max-w-sm rounded-2xl border-2 border-purple-500 bg-white p-4 text-black">
+        <form onSubmit={handleFormSubmit}>
+          <div className="space-y-1">
+            <label htmlFor="website" className="font-medium">
+              Website Url
+            </label>
+            <input
+              type="url"
+              name="website"
+              value={websiteUrl}
+              onChange={(e) => setWebsiteUrl(e.target.value)}
+              placeholder="Enter your Url"
+              className="h-10 w-full rounded-md border-2 p-4"
+            />
+          </div>
+          <button className="mt-4 h-10 w-full rounded bg-green-200 tracking-wide text-green-900">
+            Generate QR
+          </button>
+        </form>
         {qrCodeDataURL && (
-          <div className="">
-            <img src={qrCodeDataURL} alt="QR Code" />
+          <div>
+            <div className="relative mx-auto grid w-full place-items-center overflow-hidden py-4">
+              <Image
+                src={qrCodeDataURL}
+                alt={"QR Code"}
+                title={"User generated website qr code"}
+                width={240}
+                height={240}
+              />
+            </div>
             <a
               href={qrCodeDataURL}
               download="website-qr-code.png"
-              className="mt-4 block text-blue-500 hover:text-blue-700"
+              className="block w-full rounded bg-purple-200 p-2 text-center font-medium tracking-wide text-purple-900"
             >
               Download QR Code
             </a>
