@@ -21,7 +21,7 @@ export default function WebsitePage() {
       // Generate QR code as Data URL
       const qrCodeDataURL = await QRCode.toDataURL(websiteUrl, {
         errorCorrectionLevel: errorCorrectionLevel,
-        version: 7,
+        version: 9,
         color: {
           dark: "#000", // Color of the QR code
           light: "#fff", // Background color
