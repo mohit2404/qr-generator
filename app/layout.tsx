@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <main className="container mx-auto h-screen">
           {children}
-          <TrailerWrapper />
+          {/* <TrailerWrapper /> */}
         </main>
       </body>
     </html>

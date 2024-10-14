@@ -36,17 +36,27 @@ const links = [
 
 export default function NavLinks() {
   return (
-    <div className="mx-auto mt-14 grid h-auto w-full grid-cols-1 gap-4 md:grid-cols-2">
-      {links.map((link) => {
+    <div className="mx-auto mt-14 grid h-auto grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {links.map((link, idx) => {
         const LinkIcon = link.icon;
+        const cols =
+          idx === 0
+            ? "lg:row-span-2"
+            : idx === 1
+              ? "lg:col-span-2"
+              : idx === 4
+                ? "lg:col-span-2"
+                : "";
+
         return (
           <Link
             prefetch
-            key={link.name}
+            key={`link-${idx}`}
+            title={`${link.name} qr page`}
             href={link.href}
-            className={`flex items-center justify-center gap-4 rounded-md border-2 p-4 text-sm font-medium transition-all hover:bg-white hover:text-black sm:text-base`}
+            className={`block h-full min-h-60 gap-4 rounded-md border-2 p-4 text-sm font-medium transition-all hover:bg-white hover:text-black sm:text-base ${cols}`}
           >
-            <LinkIcon className="h-6 w-6" />
+            <GlobeAltIcon className="h-6 w-6" />
             <p>{link.name}</p>
           </Link>
         );
