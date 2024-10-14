@@ -8,12 +8,12 @@ const links = [
     icon: GlobeAltIcon,
   },
   {
-    name: "Text",
-    href: "/text",
+    name: "Email",
+    href: "/email",
     icon: GlobeAltIcon,
   },
   {
-    name: "Email",
+    name: "Text",
     href: "/text",
     icon: GlobeAltIcon,
   },
@@ -24,12 +24,12 @@ const links = [
   },
   {
     name: "Phone",
-    href: "/text",
+    href: "/phone",
     icon: GlobeAltIcon,
   },
   {
     name: "Sms",
-    href: "/text",
+    href: "/sms",
     icon: GlobeAltIcon,
   },
 ];
