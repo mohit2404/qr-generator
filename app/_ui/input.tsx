@@ -34,13 +34,18 @@ export default function Input({
       />
 
       {withTextArea && (
-        <textarea
-          name="message"
-          cols={4}
-          className="w-full rounded-md border-2 p-4"
-          placeholder="Enter your message"
-          onChange={hadleOnChange}
-        />
+        <>
+          <label htmlFor={"message"} className="font-medium">
+            Enter your Message
+          </label>
+          <textarea
+            name="message"
+            cols={4}
+            className="w-full rounded-md border-2 p-4"
+            placeholder="Enter your message"
+            onChange={hadleOnChange}
+          />
+        </>
       )}
     </div>
   );

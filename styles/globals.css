@@ -34,7 +34,7 @@ body {
 
 @layer components {
   .section {
-    @apply h-screen p-4 py-20 xl:px-0;
+    @apply h-fit p-4 py-20 xl:px-0;
   }
 
   .qr-card {

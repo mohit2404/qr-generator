@@ -60,7 +60,7 @@ export default function TextPage() {
         <form onSubmit={handleFormSubmit}>
           <Input
             keyName={"phone"}
-            label={"Enter Phone Number"}
+            label={"Enter Phone Number with Country Code"}
             type={"tel"}
             value={String(phone)}
             placeholder={"918826709142"}
