@@ -1,36 +1,43 @@
-import { GlobeAltIcon } from "@heroicons/react/24/outline";
+import {
+  AtSymbolIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
+  DocumentTextIcon,
+  GlobeAltIcon,
+  PhoneIcon,
+  ViewfinderCircleIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 const links = [
   {
-    name: "Website",
-    href: "/website",
+    name: "Site / Link",
+    href: "/site-url",
     icon: GlobeAltIcon,
   },
   {
     name: "Email",
     href: "/email",
-    icon: GlobeAltIcon,
+    icon: AtSymbolIcon,
   },
   {
     name: "Text",
     href: "/text",
-    icon: GlobeAltIcon,
+    icon: DocumentTextIcon,
   },
   {
-    name: "Location",
-    href: "/text",
-    icon: GlobeAltIcon,
+    name: "Whatsapp",
+    href: "/whats-app",
+    icon: ViewfinderCircleIcon,
   },
   {
     name: "Phone",
     href: "/phone",
-    icon: GlobeAltIcon,
+    icon: PhoneIcon,
   },
   {
     name: "Sms",
     href: "/sms",
-    icon: GlobeAltIcon,
+    icon: ChatBubbleOvalLeftEllipsisIcon,
   },
 ];
 
@@ -54,10 +61,12 @@ export default function NavLinks() {
             key={`link-${idx}`}
             title={`${link.name} qr page`}
             href={link.href}
-            className={`block h-full min-h-60 gap-4 rounded-md border-2 p-4 text-sm font-medium transition-all hover:bg-white hover:text-black sm:text-base ${cols}`}
+            className={`hover:bg-light hover:text-dark relative grid h-full min-h-60 place-items-center gap-4 overflow-hidden rounded-md border-2 p-4 transition-all sm:text-base ${cols}`}
           >
-            <GlobeAltIcon className="h-6 w-6" />
-            <p>{link.name}</p>
+            <LinkIcon className="absolute -left-10 -top-10 w-40 opacity-70" />
+            <p className="gradient-text text-center text-2xl font-bold">
+              {link.name} QR
+            </p>
           </Link>
         );
       })}
