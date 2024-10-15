@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { inter } from "@/app/_ui/fonts";
-import TrailerWrapper from "@/app/_ui/trailer-wrapper";
 
 export const metadata: Metadata = {
   title: "QR Code Generator",

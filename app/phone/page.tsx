@@ -3,16 +3,24 @@
 import { useState } from "react";
 import QRCode from "qrcode";
 import Image from "next/image";
+import Input from "@/app/_ui/input";
+import { ChangeEvent, FormEvent } from "@/app/_lib/types";
 
 export default function PhonePage() {
-  // local state to store the website Url
-  const [phone, setPhone] = useState<number>();
+  // local state to store phone number
+  const [phone, setPhone] = useState<number>(91);
 
   // state to store the generated QR code image data URL
   const [qrCodeDataURL, setQRCodeDataURL] = useState<string | null>(null);
 
+  // onchange Function
+  const handleOnChange = (event: ChangeEvent) => {
+    const { name, value } = event.target;
+    setPhone(Number(value));
+  };
+
   // function to submit the form and get the qr code from the api
-  async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleFormSubmit(event: FormEvent) {
     event.preventDefault();
 
     try {
@@ -36,32 +44,25 @@ export default function PhonePage() {
   }
 
   return (
-    <section className="h-screen p-4 py-20 xl:px-0">
-      <h1 className="bg-gradient-to-r from-orange-500 to-purple-500 bg-clip-text text-center text-2xl font-bold tracking-wide text-transparent md:text-4xl">
+    <section className="section">
+      <h1 className="gradient-text text-center text-2xl font-bold md:text-4xl">
         Generate QR for Phone Number
       </h1>
-      <div className="mx-auto mt-14 w-full max-w-sm rounded-2xl border-2 border-purple-500 bg-white p-4 text-black">
+      <div className="qr-card">
         <form onSubmit={handleFormSubmit}>
-          <div className="space-y-1">
-            <label htmlFor="website" className="font-medium">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              value={phone}
-              onChange={(e) => setPhone(Number(e.target.value))}
-              placeholder="Enter your phone"
-              className="h-10 w-full rounded-md border-2 p-4"
-            />
-          </div>
-          <button className="mt-4 h-10 w-full rounded bg-green-200 tracking-wide text-green-900">
-            Generate QR
-          </button>
+          <Input
+            keyName={"phone"}
+            label={"Enter Phone Number with Country Code"}
+            type={"tel"}
+            value={String(phone)}
+            placeholder={"918826709142"}
+            hadleOnChange={handleOnChange}
+          />
+          <button className="generate-button">Generate QR</button>
         </form>
         {qrCodeDataURL && (
           <div>
-            <div className="relative mx-auto grid w-full place-items-center overflow-hidden py-4">
+            <div className="qr-image">
               <Image
                 src={qrCodeDataURL}
                 alt={"QR Code"}
@@ -73,7 +74,7 @@ export default function PhonePage() {
             <a
               href={qrCodeDataURL}
               download="website-qr-code.png"
-              className="block w-full rounded bg-purple-200 p-2 text-center font-medium tracking-wide text-purple-900"
+              className="download-button"
             >
               Download QR Code
             </a>
