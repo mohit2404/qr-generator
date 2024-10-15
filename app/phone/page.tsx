@@ -73,7 +73,7 @@ export default function PhonePage() {
             </div>
             <a
               href={qrCodeDataURL}
-              download="website-qr-code.png"
+              download="phone-qr.png"
               className="download-button"
             >
               Download QR Code

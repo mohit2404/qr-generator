@@ -73,7 +73,7 @@ export default function WhatsAppPage() {
             </div>
             <a
               href={qrCodeDataURL}
-              download="whatsapp-qr-code.png"
+              download="whatsapp-qr.png"
               className="download-button"
             >
               Download QR Code

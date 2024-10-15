@@ -73,7 +73,7 @@ export default function TextPage() {
             </div>
             <a
               href={qrCodeDataURL}
-              download="website-qr-code.png"
+              download="email-qr.png"
               className="download-button"
             >
               Download QR Code

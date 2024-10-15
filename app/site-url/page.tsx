@@ -73,7 +73,7 @@ export default function WebsitePage() {
             </div>
             <a
               href={qrCodeDataURL}
-              download="website-qr-code.png"
+              download="site-url-qr.png"
               className="download-button"
             >
               Download QR Code
