@@ -46,7 +46,7 @@ export default function WebsitePage() {
   return (
     <section className="section">
       <h1 className="gradient-text text-center text-2xl font-bold md:text-4xl">
-        Generate QR for Website
+        Generate QR for Site / link
       </h1>
       <div className="qr-card">
         <form onSubmit={handleFormSubmit}>

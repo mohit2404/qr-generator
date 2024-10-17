@@ -46,7 +46,7 @@ export default function TextPage() {
   return (
     <section className="section">
       <h1 className="gradient-text text-center text-2xl font-bold md:text-4xl">
-        Generate QR for Sms
+        Generate QR for Text
       </h1>
       <div className="qr-card">
         <form onSubmit={handleFormSubmit}>
